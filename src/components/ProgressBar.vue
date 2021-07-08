@@ -1,47 +1,10 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
+import { makeGradient } from "../ts/GradientGen";
 
 export default defineComponent({
   setup() {
-    function calculateAnimationGradient(
-      numberOfSegments: number,
-      blurSegments: boolean,
-      skew: number,
-      colors: string[]
-    ): string {
-      let r = "linear-gradient(";
-      r += `${skew + 90}deg,`;
-
-      // add colors and percentages
-      for (let i = 0; i <= numberOfSegments; i++) {
-        // temp var and function to get the color and the percentage
-        let col = colors[i % colors.length];
-        let percent = (i: number): number =>
-          Math.round((i / numberOfSegments) * 1000) / 10;
-
-        // add color and percentage normally
-        r += `${col} ${percent(i)}%`;
-
-        // if blurSegments is true, add another one with the same color to make it be lines
-        if (!blurSegments) {
-          r += `,${col} ${percent(i + 1)}%`;
-
-          // stop loop if it just added 100% to prevent it having 100% colors twice at the end
-          if (percent(i + 1) === 100) break;
-        }
-
-        // add a comma if it isnt the last one
-        if (!(i === numberOfSegments)) r += ",";
-      }
-
-      r += ")";
-      console.log(r);
-      return r;
-    }
-
-    let bg = ref(
-      calculateAnimationGradient(8, false, 0, ["#23bf7c", "#10a55a"])
-    );
+    let bg = ref(makeGradient(8, false, 0, ["#23bf7c", "#10a55a"]));
 
     return {
       bg,
