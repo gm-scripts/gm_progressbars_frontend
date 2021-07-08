@@ -3,11 +3,20 @@ import { defineComponent, ref } from "vue";
 import { makeGradient } from "../ts/GradientGen";
 
 export default defineComponent({
-  setup() {
-    let bg = ref(makeGradient(8, false, 0, ["#23bf7c", "#10a55a"]));
+  props: {
+    test: String,
+  },
+  setup(props) {
+    let bg = ref(makeGradient(9, false, 0, ["#23bf7c", "#10a55a", "#4a4a55"]));
+    // let tester = ref(props.test);
+    let tester = ref(props.test);
+
+    console.log(props);
 
     return {
       bg,
+      tester,
+      props,
     };
   },
 });
@@ -19,7 +28,7 @@ export default defineComponent({
     .progress( 
       :style="{ '--bg': bg, }" 
     )
-    span.label Label
+    span.label {{ tester }}
 </template>
 
 <style lang="sass">

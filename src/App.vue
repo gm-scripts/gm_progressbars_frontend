@@ -13,7 +13,7 @@ export default defineComponent({
 <template lang="pug">
 #ui-container
   .progressbars
-    ProgressBar
+    ProgressBar( test="testing" )
 </template>
 
 <style lang="sass">
