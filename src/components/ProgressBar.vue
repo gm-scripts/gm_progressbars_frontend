@@ -7,7 +7,7 @@ export default defineComponent({
     test: String,
   },
   setup(props) {
-    let bg = ref(makeGradient(9, false, 0, ["#23bf7c", "#10a55a", "#4a4a55"]));
+    let bg = ref(makeGradient(16, false, 0, ["#5c8ac0", "#75b5fd"]));
     // let tester = ref(props.test);
     let tester = ref(props.test);
 
@@ -77,7 +77,7 @@ export default defineComponent({
         height: 100%
         background-color: red
         background-image: var(--bg)
-        transform: skewX(20deg)
+        transform: skewX(0deg)
         background-size: calc(4vh * var(--bar-length-scale))
         animation: load 5s linear infinite
 

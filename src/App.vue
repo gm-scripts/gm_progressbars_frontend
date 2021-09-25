@@ -18,7 +18,7 @@ export default defineComponent({
 
 <style lang="sass">
 #ui-container
-  --bar-border-scale: 1
+  --bar-border-scale: 0
   --bar-border-color: #4a4a55
 
   --bar-bg-color: #2d2d35 // also needed if animated
@@ -35,9 +35,9 @@ export default defineComponent({
   --bar-progress-color: #23bf7c
 
   --bar-progress-corner-rounding: 0 // 0-1
-  --bar-corner-rounding: 1 // 0-1
+  --bar-corner-rounding: 0 // 0-1
 
-  --bar-skewing: 0deg // deg
+  --bar-skewing: -20deg // deg
   --bar-progress-skewing: -0deg //deg
 
   --bar-length-scale: 9
